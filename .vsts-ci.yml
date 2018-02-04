@@ -4,12 +4,19 @@ steps:
 - script: |
     dotnet restore
     dotnet build
-    dotnet publish -o $(Build.ArtifactStagingDirectory)
+    
+# dotnet publish -o $(Build.ArtifactStagingDirectory)
 
-- task: archiveFiles@1
+- task: dotNetCore@1
   inputs:
-    rootFolder: $(Build.ArtifactStagingDirectory)
-    archiveFile: $(Build.BuildId).zip
+    Command: publish
+    Arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
+    ZipAfterPublish: true
+
+#- task: archiveFiles@1
+#  inputs:
+#    rootFolder: $(Build.ArtifactStagingDirectory)
+#    archiveFile: $(Build.BuildId).zip
 
 - task: publishBuildArtifacts@1
   inputs:
