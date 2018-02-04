@@ -9,7 +9,7 @@ steps:
 - task: archiveFiles@1
   inputs:
     rootFolder: $(Build.ArtifactStagingDirectory)
-    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    archiveFile: $(Build.BuildId).zip
 
 - task: publishBuildArtifacts@1
   inputs:
