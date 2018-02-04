@@ -7,7 +7,7 @@ steps:
     
 # dotnet publish -o $(Build.ArtifactStagingDirectory)
 
-- task: dotNetCore@1
+- task: dotNetCoreCli@1
   inputs:
     Command: publish
     Arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
