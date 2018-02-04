@@ -14,11 +14,11 @@ FROM microsoft/aspnetcore-build:2.0 AS build-env
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
-COPY *.csproj ./
+COPY dotnetcore-sample/*.csproj ./
 RUN dotnet restore
 
 # copy everything else and build
-COPY . ./
+COPY dotnetcore-sample/* ./
 RUN dotnet publish -c Release -o out
 
 # build runtime image
