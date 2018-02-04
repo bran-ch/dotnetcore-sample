@@ -13,6 +13,6 @@ steps:
 
 - task: publishBuildArtifacts@1
   inputs:
-    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    PathtoPublish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
     ArtifactName: drop
     ArtifactType: Container
