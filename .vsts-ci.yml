@@ -2,8 +2,8 @@
 # This file is needed only when you want to model your build definitions using YAML
 steps:
 - script: |
-    dotnet restore
-    dotnet build
+    dotnet msbuild /t:Restore
+    dotnet msbuild /t:Build
     dotnet publish -o $(Build.ArtifactStagingDirectory)
 
 - task: archiveFiles@1
