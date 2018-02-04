@@ -4,7 +4,7 @@ steps:
 - script: |
     dotnet restore
     dotnet build
-    dotnet test dotnetcore-tests/dotnetcore-tests.csproj
+    # dotnet test dotnetcore-tests/dotnetcore-tests.csproj
     dotnet publish -o $(Build.ArtifactStagingDirectory)
 
 - task: archiveFiles@1
