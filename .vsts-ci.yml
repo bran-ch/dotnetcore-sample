@@ -5,12 +5,12 @@ steps:
   inputs:
     Action: Build an image
     ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: Azure-VS-Professional
+    AzureSubscriptionEndpoint: ca0c4822-9499-4b1d-b3f9-f5da6b8e06e8
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
 
 - task: docker@0
   inputs:
     Action: Push an image
     ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: Azure-VS-Professional
+    AzureSubscriptionEndpoint: ca0c4822-9499-4b1d-b3f9-f5da6b8e06e8
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
