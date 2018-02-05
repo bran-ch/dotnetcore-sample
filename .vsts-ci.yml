@@ -5,7 +5,7 @@ steps:
   inputs:
     Action: Build an image
     ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: "Azure-VS-Professional"
+    AzureSubscriptionEndpoint: Visual Studio Professional
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
     AzureContainerRegistry:
       loginServer: "startacr.azurecr.io"
@@ -15,7 +15,7 @@ steps:
   inputs:
     Action: Push an image
     ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: "Azure-VS-Professional"
+    AzureSubscriptionEndpoint: Visual Studio Professional
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
     AzureContainerRegistry:
       loginServer: "startacr.azurecr.io"
