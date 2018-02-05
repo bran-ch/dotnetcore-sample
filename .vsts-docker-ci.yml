@@ -5,14 +5,14 @@ steps:
   inputs:
     Action: Build an image
     ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: "d4faa0f5-d923-40da-a956-18d8b0cefe00"
+    AzureSubscriptionEndpoint: $(BuildAzureSubscriptionEndpoint)
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
-    AzureContainerRegistry: startacr.azurecr.io
+    AzureContainerRegistry: $(BuildAzureContainerRegistry)
     
 - task: docker@0
   inputs:
     Action: Push an image
     ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: "d4faa0f5-d923-40da-a956-18d8b0cefe00"
+    AzureSubscriptionEndpoint: $(BuildAzureSubscriptionEndpoint)
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
-    AzureContainerRegistry: startacr.azurecr.io
+    AzureContainerRegistry: $(BuildAzureContainerRegistry)
