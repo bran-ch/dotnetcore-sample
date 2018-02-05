@@ -7,16 +7,12 @@ steps:
     ContainerRegistryType: Azure Container Registry
     AzureSubscriptionEndpoint: Visual Studio Professional
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
-    AzureContainerRegistry:
-      loginServer: "startacr.azurecr.io"
-      id: "/subscriptions/d4faa0f5-d923-40da-a956-18d8b0cefe00/resourceGroups/start-rg/providers/Microsoft.ContainerRegistry/registries/startacr"
-
+    AzureContainerRegistry: startacr.azurecr.io
+    
 - task: docker@0
   inputs:
     Action: Push an image
     ContainerRegistryType: Azure Container Registry
     AzureSubscriptionEndpoint: Visual Studio Professional
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
-    AzureContainerRegistry:
-      loginServer: "startacr.azurecr.io"
-      id: "/subscriptions/d4faa0f5-d923-40da-a956-18d8b0cefe00/resourceGroups/start-rg/providers/Microsoft.ContainerRegistry/registries/startacr"
+    AzureContainerRegistry: startacr.azurecr.io
