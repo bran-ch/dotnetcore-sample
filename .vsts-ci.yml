@@ -1,25 +1,16 @@
 # YAML build definition for this app
 # This file is needed only when you want to model your build definitions using YAML
 steps:
-- script: |
-    dotnet restore
-    dotnet build
-    
-# dotnet publish -o $(Build.ArtifactStagingDirectory)
-
-- task: dotNetCoreCli@1
+- task: docker@1
   inputs:
-    Command: publish
-    Arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
-    ZipAfterPublish: true
+    Action: Build an image
+    ContainerRegistryType: Azure Container Registry
+    AzureSubscriptionEndpoint: $(Build.AzureSubscriptionEndpoint.Id)
+    ImageName: $(Build.Repository.Name):$(Build.BuildId)
 
-#- task: archiveFiles@1
-#  inputs:
-#    rootFolder: $(Build.ArtifactStagingDirectory)
-#    archiveFile: $(Build.BuildId).zip
-
-- task: publishBuildArtifacts@1
+- task: docker@1
   inputs:
-    PathtoPublish: $(Build.ArtifactStagingDirectory)
-    ArtifactName: drop
-    ArtifactType: Container
+    Action: Push an image
+    ContainerRegistryType: Azure Container Registry
+    AzureSubscriptionEndpoint: $(Build.AzureSubscriptionEndpoint.Id)
+    ImageName: $(Build.Repository.Name):$(Build.BuildId)
