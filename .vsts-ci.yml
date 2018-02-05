@@ -1,14 +1,14 @@
 # YAML build definition for this app
 # This file is needed only when you want to model your build definitions using YAML
 steps:
-- task: docker
+- task: docker@0
   inputs:
     Action: Build an image
     ContainerRegistryType: Azure Container Registry
     AzureSubscriptionEndpoint: $(Build.AzureSubscriptionEndpoint.Id)
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
 
-- task: docker
+- task: docker@0
   inputs:
     Action: Push an image
     ContainerRegistryType: Azure Container Registry
