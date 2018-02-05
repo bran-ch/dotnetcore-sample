@@ -4,25 +4,12 @@ steps:
 - script: |
     dotnet restore
     dotnet build
-    
-- task: docker@0
-  inputs:
-    Action: Build an image
-    ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: $(BuildAzureSubscriptionEndpoint)
-    ImageName: $(Build.Repository.Name):$(Build.BuildId)
-    AzureContainerRegistry: $(BuildAzureContainerRegistry)
 
 - task: dotNetCoreCli@1
   inputs:
     Command: publish
     Arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
     ZipAfterPublish: true
-
-#- task: archiveFiles@1
-#  inputs:
-#    rootFolder: $(Build.ArtifactStagingDirectory)
-#    archiveFile: $(Build.BuildId).zip
 
 - task: publishBuildArtifacts@1
   inputs:
