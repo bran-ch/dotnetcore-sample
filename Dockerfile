@@ -18,7 +18,7 @@ COPY dotnetcore-sample/*.csproj ./
 RUN dotnet restore
 
 # copy everything else and build
-COPY dotnetcore-sample/* ./
+COPY dotnetcore-sample/ ./
 RUN dotnet publish -c Release -o out
 
 # build runtime image
