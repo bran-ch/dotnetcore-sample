@@ -5,14 +5,14 @@ steps:
   inputs:
     Action: Build an image
     ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: ca0c4822-9499-4b1d-b3f9-f5da6b8e06e8
+    AzureSubscriptionEndpoint: Azure-VS-Professional
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
-    AzureContainerRegistry: "{"loginServer":"startacr.azurecr.io", "id" : "/subscriptions/d4faa0f5-d923-40da-a956-18d8b0cefe00/resourceGroups/start-rg/providers/Microsoft.ContainerRegistry/registries/startacr"}"
+    AzureContainerRegistry: '{"loginServer":"startacr.azurecr.io", "id" : "/subscriptions/d4faa0f5-d923-40da-a956-18d8b0cefe00/resourceGroups/start-rg/providers/Microsoft.ContainerRegistry/registries/startacr"}'
 
 - task: docker@0
   inputs:
     Action: Push an image
     ContainerRegistryType: Azure Container Registry
-    AzureSubscriptionEndpoint: ca0c4822-9499-4b1d-b3f9-f5da6b8e06e8
+    AzureSubscriptionEndpoint: Azure-VS-Professional
     ImageName: $(Build.Repository.Name):$(Build.BuildId)
-    AzureContainerRegistry: "{"loginServer":"startacr.azurecr.io", "id" : "/subscriptions/d4faa0f5-d923-40da-a956-18d8b0cefe00/resourceGroups/start-rg/providers/Microsoft.ContainerRegistry/registries/startacr"}"
+    AzureContainerRegistry: '{"loginServer":"startacr.azurecr.io", "id" : "/subscriptions/d4faa0f5-d923-40da-a956-18d8b0cefe00/resourceGroups/start-rg/providers/Microsoft.ContainerRegistry/registries/startacr"}'
