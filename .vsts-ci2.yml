@@ -1,0 +1,18 @@
+# YAML build definition for this app
+# This file is needed only when you want to model your build definitions using YAML
+steps:
+- script: |
+    dotnet restore
+    dotnet build
+
+- task: dotNetCoreCli@1
+  inputs:
+    Command: publish
+    Arguments: --configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)
+    ZipAfterPublish: true
+
+- task: publishBuildArtifacts@1
+  inputs:
+    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: drop
+    ArtifactType: Container
